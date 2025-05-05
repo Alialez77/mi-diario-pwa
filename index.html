@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diario Personal</title>
+    <title>Mi Diario - PWA</title>
     <link rel="manifest" href="manifest.json">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
         if ("serviceWorker" in navigator) {
             navigator.serviceWorker.register("service-worker.js")
-                .then(() => console.log("Service Worker registrado con éxito!"))
-                .catch(error => console.error("Error registrando Service Worker:", error));
+                .then(() => console.log("✅ Service Worker registrado con éxito!"))
+                .catch(error => console.error("❌ Error registrando Service Worker:", error));
         }
     </script>
     <style>
@@ -19,14 +19,12 @@
             font-family: Arial, sans-serif;
             background-color: #f9f9f9;
         }
-
         .container {
             display: flex;
             flex-direction: column;
             width: 100%;
             max-width: 800px;
         }
-
         @media (min-width: 768px) {
             .container {
                 flex-direction: row;
@@ -42,17 +40,15 @@
     </style>
 </head>
 <body class="flex flex-col items-center p-4">
-    <h1 class="text-3xl font-bold mb-4 text-blue-800 text-center">Diario Personal</h1>
+    <h1 class="text-3xl font-bold mb-4 text-blue-800 text-center">Mi Diario</h1>
     <button id="installButton" class="px-4 py-2 bg-green-500 text-white rounded">Instalar Aplicación</button>
 
     <div class="container">
         <div class="p-4 bg-white shadow rounded-lg entry-box">
-            <input id="title" type="text" placeholder="Título"
-                class="w-full p-2 border mb-2 rounded-xl border-blue-400">
+            <input id="title" type="text" placeholder="Título" class="w-full p-2 border mb-2 rounded-xl border-blue-400">
             <textarea id="entry" placeholder="Escribe tu entrada aquí..."
                 class="w-full h-64 p-2 border rounded-xl border-blue-400"></textarea>
-            <button id="saveButton" onclick="saveEntry()"
-                class="mt-2 px-4 py-2 bg-blue-500 text-white rounded w-full">Guardar Entrada</button>
+            <button id="saveButton" onclick="saveEntry()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded w-full">Guardar Entrada</button>
             <input type="hidden" id="editingIndex">
         </div>
 
