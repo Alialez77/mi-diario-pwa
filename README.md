@@ -1,2 +1,2 @@
 # mi-diario-pwa
-Aplicación de diario personal para móvil
+Aplicación de diario personal para móvil realizada utilizando IA
