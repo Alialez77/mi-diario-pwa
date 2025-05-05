@@ -1,3 +1,9 @@
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js")
+        .then(() => console.log("✅ Service Worker registrado con éxito!"))
+        .catch(error => console.error("❌ Error registrando Service Worker:", error));
+}
+
 let deferredPrompt;
 const installButton = document.getElementById("installButton");
 
@@ -23,13 +29,11 @@ function saveEntry() {
 
     if (title && content) {
         let entries = JSON.parse(localStorage.getItem("diaryEntries")) || [];
-
         if (editingIndex === "") {
             entries.push({ date: new Date().toLocaleDateString(), title, content });
         } else {
             entries[editingIndex] = { date: new Date().toLocaleDateString(), title, content };
         }
-
         localStorage.setItem("diaryEntries", JSON.stringify(entries));
         resetForm();
         loadEntries();
