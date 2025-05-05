@@ -10,7 +10,7 @@ window.addEventListener("beforeinstallprompt", (event) => {
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then((choiceResult) => {
             if (choiceResult.outcome === "accepted") {
-                console.log("Aplicación instalada correctamente!");
+                console.log("✅ Aplicación instalada correctamente!");
             }
         });
     });
